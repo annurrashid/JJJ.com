@@ -90,7 +90,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-<div class="wrapper">
+  <div class="wrapper">
+<div class="form-box">
   <form method="POST" class="login-container">
     <header>Reset Password</header>
     <?php if ($message): ?>
@@ -108,5 +109,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </form>
 </div>
+    </div>
 </body>
 </html>

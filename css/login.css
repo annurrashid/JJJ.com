@@ -90,7 +90,7 @@ body {
   z-index: 2;
 }
 .login-container {
-  position: center;
+  position: absolute;
   left: 4px;
   width: 500px;
   display: flex;
