@@ -9,23 +9,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 }
 
 // Pagination setup
-$limit = 10; // rows per page
+$limit = 7; // rows per page
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
-
-// Filter: payment_status only
-$payment_filter = isset($_GET['payment_status']) ? $_GET['payment_status'] : '';
-
-// Build WHERE clause
-$where = [];
-if ($payment_filter !== '') {
-    $where[] = "p.payment_status = '" . mysqli_real_escape_string($conn, $payment_filter) . "'";
-}
-
-$where_sql = '';
-if (count($where) > 0) {
-    $where_sql = "WHERE " . implode(" AND ", $where);
-}
 
 // Get total rows for pagination
 $total_sql = "SELECT COUNT(*) 
@@ -135,18 +121,6 @@ $result = mysqli_query($conn, $sql);
                     <div class="cardHeader">
                         <h2>Payment Status</h2>
                     </div>
-
-                    <form method="GET" action="Admindash.php" style="margin-bottom: 15px;">
-                        <label for="payment_status">Payment Status:</label>
-                        <select name="payment_status" id="payment_status">
-                            <option value="">All</option>
-                            <option value="Completed" <?= $payment_filter === 'Completed' ? 'selected' : '' ?>>Completed</option>
-                            <option value="Pending" <?= $payment_filter === 'Pending' ? 'selected' : '' ?>>Pending</option>
-                            <option value="Failed" <?= $payment_filter === 'Failed' ? 'selected' : '' ?>>Failed</option>
-                            <option value="Refunded" <?= $payment_filter === 'Refunded' ? 'selected' : '' ?>>Refunded</option>
-                        </select>
-                        <button type="submit">Filter</button>
-                    </form>
                     <table>
                         <thead>
                             <tr>
