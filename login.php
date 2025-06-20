@@ -129,6 +129,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="input-box">
         <input type="submit" class="submit" value="Sign In">
       </div>
+      <div style="text-align: center; margin-top: 10px;">
+  <a href="forgot_password.php">Forgot Password?</a>
+</div>
+
     </form>
 
     <!-- Register Form -->
