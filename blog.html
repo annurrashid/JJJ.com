@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Minimalist E-commerce Blog</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+      /* Reset */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background-color: #fff;
+        color: #111;
+        line-height: 1.6;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
+      }
+      header {
+        padding: 24px 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 40px;
+      }
+      header h1 {
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin: 0;
+        letter-spacing: 0.03em;
+      }
+      header p {
+        margin: 0;
+        color: #555;
+        font-size: 1rem;
+        margin-top: 8px;
+      }
+      main article {
+        margin-bottom: 48px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 24px;
+      }
+      main article:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      main article h2 {
+        font-weight: 700;
+        font-size: 1.75rem;
+        margin-bottom: 8px;
+      }
+      main article p {
+        color: #444;
+        font-size: 1rem;
+        margin-bottom: 12px;
+      }
+      main article time {
+        display: inline-block;
+        color: #888;
+        font-size: 0.85rem;
+      }
+      nav.pagination {
+        text-align: center;
+        margin: 40px 0 20px;
+      }
+      nav.pagination button {
+        background: none;
+        border: 2px solid #333;
+        color: #333;
+        padding: 8px 16px;
+        margin: 0 8px;
+        font-weight: 700;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      nav.pagination button:hover {
+        background-color: #333;
+        color: #fff;
+      }
+      footer {
+        text-align: center;
+        margin-top: 60px;
+        color: #888;
+        font-size: 0.9rem;
+        padding-bottom: 16px;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 12px;
+        }
+        header h1 {
+          font-size: 2rem;
+        }
+        main article h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header role="banner">
+      <h1>Minimalist E-commerce Blog</h1>
+      <p>Insights, trends, and stories about modern online shopping</p>
+    </header>
+    <main role="main">
+      <article>
+        <h2>How to Choose the Perfect Minimalist Wardrobe</h2>
+        <time datetime="2025-06-01">June 1, 2025</time>
+        <p>
+          Creating a minimalist wardrobe means investing in quality pieces that
+          align with your style. Focus on versatility, neutral colors, and
+          sustainable brands to build a timeless collection that serves you
+          year-round.
+        </p>
+      </article>
+      <article>
+        <h2>Top 5 Essential Gadgets for Simplifying Your Life</h2>
+        <time datetime="2025-05-25">May 25, 2025</time>
+        <p>
+          From smart home assistants to wireless chargers, these gadgets blend
+          design and functionality. Discover the best tools that can seamlessly
+          integrate into your daily routine without clutter.
+        </p>
+      </article>
+      <article>
+        <h2>The Rise of Ethical E-commerce: What You Need to Know</h2>
+        <time datetime="2025-05-10">May 10, 2025</time>
+        <p>
+          Ethical e-commerce prioritizes sustainability and responsibility.
+          Learn how consumers and sellers are shaping the future of online
+          shopping by valuing transparency, fair labor, and eco-friendly
+          packaging.
+        </p>
+      </article>
+      <nav class="pagination" role="navigation" aria-label="Pagination">
+        <button aria-label="Previous page" disabled>&larr; Previous</button>
+        <button aria-label="Next page">Next &rarr;</button>
+      </nav>
+    </main>
+    <footer role="contentinfo">
+      &copy; 2025 Minimalist E-commerce Blog. All rights reserved.
+    </footer>
+  </body>
+</html>

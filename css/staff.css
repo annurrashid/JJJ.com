@@ -1,0 +1,296 @@
+/* ================ TASK MANAGEMENT SPECIFIC STYLES ================ */
+@import "A-base.css";
+
+
+/* ======================= Cards ====================== */
+.cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card {
+  position: relative;
+  background: var(--white);
+  padding: var(--spacing-unit);
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast);
+}
+
+ .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--black);
+}
+
+.card .cardName {
+  color: var(--blue);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.card .iconBx {
+  font-size: 3.5rem;
+  color: var(--blue);
+}
+
+.cardBox .card:hover {
+  background: var(--white);
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+}
+
+/* ========== Staff Management Section ========== */
+
+.staffManagement {
+  position: relative;
+  width: 100%;
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  margin-top: var(--spacing-lg);
+}
+
+.staffManagement h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ================= BUTTON ================= */
+.staffManagement button {
+  padding: 10px 16px;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.staffManagement button:hover {
+  background-color: var(--black);
+}
+
+.btn {
+  padding: 10px 16px;
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-weight: 500;
+  transition: background-color var(--transition-fast), transform 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+  background-color: var(--black);
+  transform: translateY(-2px);
+}
+/* ========== Staff Modal Form ========== */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+.modal-content {
+  background-color: var(--white);
+  max-width: 600px;
+  width: 95%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close {
+  font-size: var(font-size-xl);
+  font-weight: bold;
+  color: var(--dark);
+  cursor: pointer;
+  float: right;
+}
+
+.staffForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-unit);
+}
+
+.staffForm input,
+.staffForm select {
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+}
+
+.staffForm button[type="submit"] {
+  padding: 10px;
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  transition: var(--transition-fast);
+}
+
+.staffForm button[type="submit"]:hover {
+  background-color: #3c4c6a;
+}
+/* ========== Staff Table ========== */
+
+.recentOrders {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.staffTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-md);
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.staffTable thead {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.staffTable thead th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.staffTable tbody tr {
+  border-bottom: 1px solid var(--light-gray);
+  transition: background-color 0.3s ease;
+}
+
+.staffTable tbody tr:hover {
+  background-color: var(--light-gray);
+}
+
+.staffTable tbody td {
+  padding: 12px 15px;
+  vertical-align: middle;
+}
+
+/* ========== Action Buttons ========== */
+
+.staffTable tbody td button,
+.staffTable tbody td a.deleteBtn,
+.staffTable tbody td a {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-right: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.staffTable tbody td button {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.staffTable tbody td button:hover {
+  background-color: var(--black);
+}
+
+.staffTable tbody td a.deleteBtn {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.staffTable tbody td a.deleteBtn:hover {
+  background-color: var(--black);
+}
+
+/* ========== Responsive ========== */
+
+@media (max-width: 768px) {
+  .modal-form {
+    gap: var(--spacing-xs);
+  }
+
+  .staffTable thead {
+    display: none;
+  }
+
+  .staffTable, .staffTable tbody, .staffTable tr, .staffTable td {
+    display: block;
+    width: 100%;
+  }
+
+  .staffTable tr {
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .staffTable td {
+    padding: 10px 15px;
+    text-align: right;
+    position: relative;
+  }
+
+  .staffTable td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-weight: 600;
+    text-align: left;
+    color: var(--black1);
+  }
+}

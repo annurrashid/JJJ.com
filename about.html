@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About - Minimalist E-commerce Blog</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+      /* Reset */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background-color: #fff;
+        color: #111;
+        line-height: 1.6;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px 16px 60px;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: white;
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+      }
+      header h1 {
+        font-weight: 700;
+        font-size: 2rem;
+        margin: 0;
+        letter-spacing: 0.03em;
+      }
+      nav {
+        margin-top: 16px;
+        text-align: center;
+      }
+      nav a {
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+        font-size: 1rem;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 4px;
+        margin: 0 12px;
+        transition: border-color 0.3s ease;
+      }
+      nav a:hover,
+      nav a:focus {
+        border-bottom-color: #333;
+        outline: none;
+      }
+      main {
+        flex: 1;
+        padding-top: 40px;
+      }
+      main h2 {
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 24px;
+        text-align: center;
+        color: #222;
+      }
+      main p {
+        font-size: 1.125rem;
+        color: #444;
+        max-width: 600px;
+        margin: 0 auto 20px auto;
+        text-align: center;
+      }
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        color: #888;
+        font-size: 0.9rem;
+        padding-bottom: 20px;
+        border-top: 1px solid #eee;
+      }
+      @media (max-width: 480px) {
+        main h2 {
+          font-size: 1.75rem;
+        }
+        main p {
+          font-size: 1rem;
+          padding: 0 10px;
+        }
+        nav a {
+          margin: 0 8px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header role="banner">
+      <h1>Minimalist E-commerce Blog</h1>
+    </header>
+
+    <nav role="navigation" aria-label="Primary navigation">
+      <a href="index.html">← Back to Blog</a>
+    </nav>
+
+    <main role="main">
+      <h2>About Us</h2>
+      <p>
+        Welcome to the Minimalist E-commerce Blog, your trusted source for
+        thoughtful insights on minimalist living and modern online shopping. Our
+        blog is dedicated to helping you discover curated content that blends
+        simplicity with style and sustainability.
+      </p>
+      <p>
+        We believe in mindful consumption, quality over quantity, and the power
+        of making informed choices. Through our well-researched articles and
+        guides, we aim to inspire a lighter, cleaner lifestyle—one purchase at a
+        time.
+      </p>
+      <p>
+        Whether you're new to minimalist living or a seasoned enthusiast, our
+        blog offers the latest trends, tips, and stories that empower you to
+        shop smarter and live better.
+      </p>
+    </main>
+
+    <footer role="contentinfo">
+      &copy; 2025 Minimalist E-commerce Blog. All rights reserved.
+    </footer>
+  </body>
+</html>

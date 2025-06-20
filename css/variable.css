@@ -1,0 +1,36 @@
+/* ================ CSS VARIABLES ================ */
+:root {
+  /* Color Palette */
+  --primary: #3c4c6a;       /* Main blue color */
+  --secondary: #F6E3B3;     /* Mustard yellow */
+  --dark: #222;             /* Dark gray */
+  --black: #000;            /* Pure black */
+  --light-gray: #D3D3D3;    /* Light gray */
+  --white: #fff;            /* White */
+
+  /* Status Colors */
+  --success: #28a745;       /* Green */
+  --warning: #ffc107;       /* Yellow */
+  --danger: #dc3545;        /* Red */
+  --info: #17a2b8;          /* Blue */
+
+  /* Typography */
+  --font-family: "Ubuntu", sans-serif;
+  --font-size-base: 16px;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+
+  /* Spacing */
+  --spacing-unit: 1rem;
+  --border-radius: 8px;
+  --border-radius-lg: 20px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 7px 25px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 35px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-fast: 0.3s ease;
+  --transition-medium: 0.5s ease;
+}

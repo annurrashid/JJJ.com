@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Services - Minimalist E-commerce Blog</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+      /* Reset */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: #fff;
+        color: #111;
+        line-height: 1.6;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px 16px 60px;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: white;
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+      }
+      header h1 {
+        font-weight: 700;
+        font-size: 2rem;
+        margin: 0;
+        letter-spacing: 0.03em;
+      }
+      nav {
+        margin-top: 16px;
+        text-align: center;
+      }
+      nav a {
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+        font-size: 1rem;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 4px;
+        margin: 0 12px;
+        transition: border-color 0.3s ease;
+      }
+      nav a:hover,
+      nav a:focus {
+        border-bottom-color: #333;
+        outline: none;
+      }
+      main {
+        flex: 1;
+        padding-top: 40px;
+      }
+      main h2 {
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 24px;
+        text-align: center;
+        color: #222;
+      }
+      .services-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .service-item {
+        background: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 24px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: box-shadow 0.3s ease;
+      }
+      .service-item:hover {
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      }
+      .service-icon {
+        font-size: 40px;
+        margin-bottom: 16px;
+        color: #6366f1;
+      }
+      .service-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #1f2937;
+      }
+      .service-description {
+        font-size: 1rem;
+        color: #4b5563;
+        line-height: 1.5;
+        flex-grow: 1;
+      }
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        color: #888;
+        font-size: 0.9rem;
+        padding-bottom: 20px;
+        border-top: 1px solid #eee;
+      }
+      @media (max-width: 480px) {
+        main h2 {
+          font-size: 1.75rem;
+        }
+        .services-list {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header role="banner">
+      <h1>Minimalist E-commerce Blog</h1>
+    </header>
+
+    <nav role="navigation" aria-label="Primary navigation">
+      <a href="index.html">← Back to Blog</a>
+    </nav>
+
+    <main role="main">
+      <h2>Our Services</h2>
+      <div class="services-list">
+        <article class="service-item" tabindex="0">
+          <div class="service-icon" aria-hidden="true">📦</div>
+          <h3 class="service-title">Curated Product Reviews</h3>
+          <p class="service-description">
+            In-depth reviews of the best minimalist and sustainable products to
+            help you make informed purchases.
+          </p>
+        </article>
+        <article class="service-item" tabindex="0">
+          <div class="service-icon" aria-hidden="true">🛍️</div>
+          <h3 class="service-title">Shopping Guides</h3>
+          <p class="service-description">
+            Expert guides and tips for shopping smarter and living a minimalist
+            lifestyle without compromise.
+          </p>
+        </article>
+        <article class="service-item" tabindex="0">
+          <div class="service-icon" aria-hidden="true">💡</div>
+          <h3 class="service-title">Sustainability Consulting</h3>
+          <p class="service-description">
+            Advice and strategies for ethical brands and consumers to reduce
+            environmental impact and embrace sustainability.
+          </p>
+        </article>
+        <article class="service-item" tabindex="0">
+          <div class="service-icon" aria-hidden="true">📊</div>
+          <h3 class="service-title">Market Trend Analysis</h3>
+          <p class="service-description">
+            Stay updated with the latest trends in e-commerce and minimalist
+            living for smarter investments.
+          </p>
+        </article>
+      </div>
+    </main>
+
+    <footer role="contentinfo">
+      &copy; 2025 Minimalist E-commerce Blog. All rights reserved.
+    </footer>
+  </body>
+</html>

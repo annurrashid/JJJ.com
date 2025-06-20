@@ -1,0 +1,113 @@
+/* ================ STAFF DASHBOARD SPECIFIC STYLES ================ */
+@import "base.css";
+
+/* ================ DASHBOARD CONTENT ================ */
+.details {
+  padding: 20px;
+}
+
+.recentOrders {
+  background: var(--light-gray);
+  padding: 20px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cardHeader h2 {
+  color: var(--black);
+  font-weight: 600;
+  font-size: var(--font-size-xl);
+}
+
+/* ================ TABLE STYLES ================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table thead td {
+  font-weight: 600;
+  padding: 12px 10px;
+  background-color: var(--black);
+  color: var(--secondary);
+}
+
+table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--dark);
+}
+
+table tbody tr:hover {
+  background: var(--light-gray);
+}
+
+table tbody td {
+  padding: 12px 10px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+@media (max-width: 992px) {
+  .navigation {
+    width: 80px;
+  }
+  
+  .navigation.active {
+    width: 300px;
+  }
+  
+  .main {
+    width: calc(100% - 80px);
+    left: 80px;
+  }
+  
+  .main.active {
+    left: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation {
+    width: 0;
+  }
+  
+  .navigation.active {
+    width: 100%;
+  }
+  
+  .main {
+    width: 100%;
+    left: 0;
+  }
+  
+  .main.active {
+    left: 100%;
+  }
+  
+  table tbody td {
+    padding: 8px 6px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,252 @@
+/* ================ TASK MANAGEMENT SPECIFIC STYLES ================ */
+@import "A-base.css";
+
+/* ======================= Cards ====================== */
+.cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card {
+  position: relative;
+  background: var(--white);
+  padding: var(--spacing-unit);
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast);
+}
+
+ .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--black);
+}
+
+.card .cardName {
+  color: var(--blue);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.card .iconBx {
+  font-size: 3.5rem;
+  color: var(--blue);
+}
+
+.cardBox .card:hover {
+  background: var(--white);
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+}
+
+/* ========== Task Modal Form ========== */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+.modal-content {
+  background-color: var(--white);
+  max-width: 600px;
+  width: 95%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close {
+  font-size: var(font-size-xl);
+  font-weight: bold;
+  color: var(--dark);
+  cursor: pointer;
+  float: right;
+}
+
+.taskForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-unit);
+}
+
+.taskForm input,
+.taskForm textarea {
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+}
+
+.taskForm textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.taskForm button[type="submit"] {
+  padding: 10px;
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  transition: var(--transition-fast);
+}
+
+.taskForm button[type="submit"]:hover {
+  background-color: #3c4c6a;
+}
+
+.task-assignment {
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid var(--light-gray);
+  padding: var(--spacing-unit);
+  border-radius: var(--border-radius);
+}
+
+.task-assignment label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+  padding: 10px 16px;
+  background-color: var(--blue); 
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-weight: 500;
+  transition: background-color var(--transition-fast), transform 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+  background-color: var(--black); 
+  transform: translateY(-2px);
+}
+
+/* ========== Table ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--white);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.staffTable th {
+    background-color: var(--blue);
+    color: white;
+    font-weight: 500;
+}
+
+.staffTable tr:hover {
+  background-color: var(--light-gray);
+}
+
+/* ========== Action Buttons ========== */
+.action-buttons button,
+.edit-btn,
+.delete-btn,
+.assign-btn {
+  margin-right: 5px;
+  padding: 5px 10px;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.edit-btn {
+  background-color: var(--blue);
+}
+
+.delete-btn {
+  background-color: var(--red);
+}
+
+.assign-btn {
+  background-color: var(--green);
+}
+
+/* ========== Staff Chips Display (For Multiple Assignment) ========== */
+.staff-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.staff-chip {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 4px 8px;
+  border-radius: var(--border-radius);
+  font-size: 0.85rem;
+}
+
+/* ========== Responsive Adjustments ========== */
+@media (max-width: 768px) {
+  .cardBox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-content {
+    margin-top: 20px;
+  }
+}

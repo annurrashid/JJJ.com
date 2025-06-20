@@ -1,0 +1,179 @@
+/* =======================
+   BASE.CSS
+   Global Layout and Component Structure
+   ======================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import "variable.css";
+
+/* ========== Reset ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background-color: var(--secondary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========== Layout Wrapper ========== */
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* ========== Sidebar Navigation ========== */
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--black);
+  border-left: 10px solid var(--black);
+  transition: width var(--transition-medium);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  list-style: none;
+}
+
+.navigation ul li {
+  width: 100%;
+  border-top-left-radius: var(--border-radius-lg);
+  border-bottom-left-radius: var(--border-radius-lg);
+}
+
+.navigation ul li:hover {
+  background-color: var(--secondary);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: var(--secondary);
+  padding-left: 15px;
+}
+
+.navigation ul li:hover a {
+  color: var(--primary);
+}
+
+.navigation ul li a .icon {
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  padding-left: 10px;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.navigation.active .title {
+  display: none;
+}
+
+/* ========== Logo Area in Sidebar ========== */
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  pointer-events: none;
+}
+
+.logo-section .logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  transition: all var(--transition-fast);
+}
+
+.logo-section .admin-label {
+  color: var(--white);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  text-align: center;
+  word-break: break-word;
+  padding: 0 10px;
+  transition: all var(--transition-fast);
+}
+
+.navigation.active .logo {
+  width: 40px;
+  height: 40px;
+}
+
+.navigation.active .admin-label {
+  font-size: 0;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+/* ========== Main Content Area ========== */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--secondary);
+  transition: all var(--transition-medium);
+  padding: 20px;
+}
+
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+/* ========== Top Bar ========== */
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: var(--primary);
+}

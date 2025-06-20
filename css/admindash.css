@@ -1,0 +1,167 @@
+/* ================ PAYMENT DASHBOARD STYLES ================ */
+@import "A-base.css";
+
+/* ================== Container Layout ================== */
+.details {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+.recentOrders {
+  width: 100%;
+  max-width: 1000px;
+  background-color: var(--white);
+  color: var(--black);
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  padding: var(--spacing-md);
+  height: 300px;
+  overflow-x: auto;
+}
+
+/* ================== Header Card ================== */
+.recentOrders .cardHeader {
+  width: 100%;
+  height: 50px;
+  background-color: var(--white);
+  color: var(--black);
+  padding: var(--spacing-md);
+  padding-left: 30px;
+  border-radius: 20px;
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================== Filter Form ================== */
+.recentOrders form {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.recentOrders select,
+.recentOrders button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  background-color: var(--mustard);
+  color: var(--black);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.recentOrders select:focus,
+.recentOrders button:focus {
+  outline: 2px solid var(--blue);
+}
+
+/* ================== Table Styling ================== */
+.recentOrders table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  margin-top: var(--spacing-sm);
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.recentOrders thead {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.recentOrders th,
+.recentOrders td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--light-gray);
+  
+}
+
+.recentOrders th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  background-color: var(--secondary);
+  border-bottom: 3px solid var(--blue);
+}
+
+.recentOrders tbody tr:hover {
+  background-color: var(--light-gray);
+  transition: background-color 0.3s ease;
+}
+
+/* Right-align Quantity and Price */
+.recentOrders td:nth-child(3),
+.recentOrders td:nth-child(4) {
+  text-align: right;
+}
+
+/* Payment Status Badge Styling */
+.recentOrders .status-paid {
+  background-color: var(--green);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.recentOrders .status-pending {
+  background-color: var(--yellow);
+  color: black;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.recentOrders .status-failed {
+  background-color: var(--red);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 768px) {
+  .details {
+    padding: var(--spacing-sm);
+  }
+
+  .recentOrders {
+    padding: var(--spacing-sm);
+  }
+
+  .recentOrders th,
+  .recentOrders td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .recentOrders .cardHeader h2 {
+    font-size: 18px;
+  }
+
+  .recentOrders form {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recentOrders th,
+  .recentOrders td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .recentOrders .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

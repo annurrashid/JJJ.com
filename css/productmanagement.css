@@ -1,0 +1,275 @@
+/* ================ PRODUCT MANAGEMENT SPECIFIC STYLES ================ */
+@import "A-base.css";
+
+/* ================= CONTAINER ================= */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+/* ================= HEADING ================= */
+.productManagement h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--black1);
+}
+
+/* ================= BUTTON ================= */
+.productManagement button {
+  padding: 10px 16px;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.productManagement button:hover {
+  background-color: var(--black);
+}
+
+/* ================= TABLE ================= */
+
+.recentOrders {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.productTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-md);
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.productTable thead {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.productTable thead th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.productTable tbody tr {
+  border-bottom: 1px solid var(--light-gray);
+  transition: background-color 0.3s ease;
+}
+
+.productTable tbody tr:hover {
+  background-color: var(--light-gray);
+}
+
+.productTable tbody td {
+  padding: 12px 15px;
+  vertical-align: middle;
+}
+
+/* IMAGE */
+.productManagement td img {
+  width: 60px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+
+/* ================= STATUS BADGES ================= */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background: var(--green);
+  color: white;
+}
+
+.status-badge.inactive {
+  background: var(--red);
+  color: white;
+}
+
+/* ================= ACTION BUTTONS ================= */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.action-buttons a {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  text-align: center;
+  min-width: 70px;
+  display: inline-block;
+}
+
+.action-buttons a.editBtn {
+  background-color: var(--blue);
+  color: white;
+}
+
+.action-buttons a.deleteBtn {
+  background-color: var(--red);
+  color: white;
+}
+
+.action-buttons a:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Align buttons vertically in cell */
+.productManagement td .action-buttons {
+  justify-content: start;
+}
+
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 300px;
+    width: calc(100% - 300px);
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.modal-content {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-content h3 {
+    margin-bottom: 10px;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-content form input,
+.modal-content form textarea,
+.modal-content form select {
+    width: 100%;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+/* Form Input Groups */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--blue);
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+}
+
+.input-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* File Input Styling */
+.file-input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.file-input-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-input-text {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.file-input-button {
+    padding: 12px 16px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.file-input-button:hover {
+    background: var(--black);
+}
+
+/* Form Layout Improvements */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-row .input-group {
+    flex: 1;
+}

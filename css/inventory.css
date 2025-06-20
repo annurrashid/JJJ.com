@@ -1,0 +1,205 @@
+/* ================ INVENTORY SPECIFIC STYLES ================ */
+@import "base.css";
+
+/* ================ CONTAINER STYLING ================ */
+.inventory-form,
+.recent-updates {
+    background: var(--white-color);
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-3xl);
+}
+
+/* ================ FORM FIELDS ================ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--dark);
+}
+
+select,
+input[type="number"],
+textarea {
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--dark);
+    font-family: var(--font-family);
+    background-color: var(--white);
+    color: var(--dark);
+    font-size: var(--font-size-base);
+}
+
+/* ================ BUTTON ================ */
+.btn {
+    background-color: var(--black);
+    color: var(--secondary);
+    border: none;
+    padding: 10px 16px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: 500;
+    transition: background-color var(--transition-fast);
+    width: fit-content;
+}
+
+.btn:hover {
+    background-color: var(--primary);
+}
+
+/* ================ TABLE STYLING (MATCH stafftask.css) ================ */
+.recent-updates h2 {
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--light-gray);
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+th {
+    background-color: var(--black);
+    color: var(--secondary);
+    font-weight: 500;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+table .positive {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+table .negative {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+/* ================ ALERT BOX ================ */
+.critical-alert {
+    background-color: #fff3cd;
+    border-left: 4px solid var(--warning-color);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+.critical-alert ion-icon {
+    color: var(--warning-color);
+    font-size: var(--font-size-2xl);
+    margin-right: var(--spacing-md);
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+@media (max-width: 992px) {
+    .navigation {
+        width: var(--nav-collapsed-width);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .navigation.active {
+        width: var(--nav-width);
+    }
+
+    .main {
+        width: calc(100% - var(--nav-collapsed-width));
+        left: var(--nav-collapsed-width);
+    }
+
+    .main.active {
+        left: var(--nav-width);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+
+    th, td {
+        padding: var(--spacing-md) var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-xl);
+        font-size: var(--font-size-sm);
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    .form-group select,
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .navigation {
+        width: 0;
+        left: -100%;
+        transition: all var(--transition-medium);
+    }
+
+    .navigation.active {
+        width: 100%;
+        left: 0;
+    }
+
+    .main {
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active {
+        left: 0;
+    }
+
+    .form-group select,
+    .form-group input,
+    .form-group textarea {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .inventory-form,
+    .recent-updates {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    th, td {
+        padding: var(--spacing-md) var(--spacing-xs);
+        font-size: 13px;
+    }
+}
