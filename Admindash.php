@@ -17,8 +17,7 @@ $offset = ($page - 1) * $limit;
 $total_sql = "SELECT COUNT(*) 
               FROM payments p 
               JOIN customer c ON p.Cust_ID = c.Cust_ID
-              JOIN order_items oi ON p.Order_Item_ID = oi.Order_Item_ID
-              $where_sql";
+              JOIN order_items oi ON p.Order_Item_ID = oi.Order_Item_ID";
 $total_result = mysqli_query($conn, $total_sql);
 $total_rows = mysqli_fetch_array($total_result)[0];
 $total_pages = ceil($total_rows / $limit);
@@ -28,7 +27,6 @@ $sql = "SELECT p.Payment_ID, oi.Product_ID, oi.Quantity, p.Payment_Amount, p.Pay
         FROM payments p
         JOIN customer c ON p.Cust_ID = c.Cust_ID
         JOIN order_items oi ON p.Order_Item_ID = oi.Order_Item_ID
-        $where_sql
         ORDER BY p.Payment_ID DESC
         LIMIT $limit OFFSET $offset";
 
@@ -145,7 +143,7 @@ $result = mysqli_query($conn, $sql);
                              ?>
                         </tbody>
                     </table>
-                    <div class="pagination" style="margin-top: 15px;">
+                    <div class="pagination" style="margin-top: 10px; text-align: center;">
                         <?php if ($page > 1): ?>
                             <a href="?page=<?= $page - 1 ?>&payment_status=<?= urlencode($payment_filter) ?>">Prev</a>
                         <?php endif; ?>
