@@ -78,8 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href=" css/login.css" />
   <title>JJJ | Login & Registration</title>
   <style>
-    .form-message {
-      color: red;
+    .form-message {   
+      color: #28a745;
       margin-bottom: 10px;
       text-align: center;
     }
