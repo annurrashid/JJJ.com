@@ -70,6 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $mail->send();
             $message = "Temporary password sent to your email.";
+            header("Location: login.php");
+            exit();
         } catch (Exception $e) {
             $message = "Mailer Error: {$mail->ErrorInfo}";
         }
