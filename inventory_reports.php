@@ -97,6 +97,9 @@ $logs = $conn->query("
                         </tr>
                     </thead>
                     <tbody>
+                    <form method="post" action="download_report_pdf.php" style="margin-bottom: 20px;">
+    <button type="submit" class="btn-download">Download PDF Report</button>
+</form>
                         <?php while ($log = $logs->fetch_assoc()): ?>
                             <tr>
                                 <td><?= htmlspecialchars($log['Product_Name']) ?></td>

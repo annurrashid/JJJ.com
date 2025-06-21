@@ -2,31 +2,49 @@
 @import "A-base.css";
 
 .report-container {
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            margin: 30px;
-        }
-        .report-container h2 {
-            margin-bottom: 15px;
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #fafafa;
-        }
-        th, td {
-            padding: 10px 12px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background: var(--mustard);
-            color: #000;
-        }
-        tr:nth-child(even) {
-            background: #f1f1f1;
-        }
-        .positive { color: green; }
-        .negative { color: red; }
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  margin: 30px;
+}
+.report-container h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fafafa;
+}
+th,
+td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background: var(--mustard);
+  color: #000;
+}
+tr:nth-child(even) {
+  background: #f1f1f1;
+}
+.positive {
+  color: green;
+}
+.negative {
+  color: red;
+}
+
+.btn-download {
+  background-color: #3c4c6a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-download:hover {
+  background-color: #2e3851;
+}
