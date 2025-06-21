@@ -117,30 +117,71 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mail->addAddress($customer_email, $customer_name);
             $mail->isHTML(true);
             $mail->Subject = 'JJJ.com - Order Receipt #' . $order_id;
-            $mail->Body = '
-                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; background-color: #fff; padding: 20px;">
-                    <div style="text-align: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px;">
-                        <h2 style="color: #3C4C6A; margin: 0;">JJJ.com</h2>
-                        <p style="color: #888; font-size: 14px;">Your Order Receipt</p>
-                    </div>
-                    <p style="font-size: 16px; color: #3C4C6A;">Hi <strong>' . htmlspecialchars($customer_name) . '</strong>,</p>
-                    <p style="font-size: 15px; color: #3C4C6A;">Thank you for your purchase! We are pleased to confirm that we have received your payment.</p>
-                    <div style="background-color: #F6E3B3; padding: 15px; border-radius: 8px; margin: 20px 0;">
-                        <h3 style="margin-top: 0; color: #3C4C6A;">Order Summary</h3>
-                        <p style="margin: 5px 0;"><strong>Order ID:</strong> ' . htmlspecialchars($order_id) . '</p>
-                        <p style="margin: 5px 0;"><strong>Amount Paid:</strong> RM ' . number_format($amount, 2) . '</p>
-                        <p style="margin: 5px 0;"><strong>Payment Method:</strong> ' . htmlspecialchars($payment_method) . '</p>
-                        <p style="margin: 5px 0;"><strong>Status:</strong> ' . htmlspecialchars($payment_status) . '</p>
-                    </div>
-                    <div style="margin-bottom: 20px;">
-                        <h4 style="color: #3C4C6A;">Shipping Address</h4>
-                        <p style="margin: 0; color: #3C4C6A;">' . nl2br(htmlspecialchars($address)) . '</p>
-                    </div>
-                    <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
-                    <p style="font-size: 14px; color: #888;">If you have any questions, feel free to contact us at 
-                    <a href="mailto:support@jjj.com" style="color: #E27D7D; text-decoration: none;">support@jjj.com</a>.</p>
-                    <p style="font-size: 14px; color: #888;">Thank you for shopping with us at <strong>JJJ.com</strong>!</p>
-                </div>';
+          // Get order items for breakdown
+$items_stmt = $conn->prepare("
+SELECT p.Product_Name, oi.Quantity, oi.Unit_Price 
+FROM order_items oi 
+JOIN products p ON oi.Product_ID = p.Product_ID 
+WHERE oi.Order_ID = ?
+");
+$items_stmt->bind_param("i", $order_id);
+$items_stmt->execute();
+$items_result = $items_stmt->get_result();
+
+$item_rows_html = '';
+while ($item = $items_result->fetch_assoc()) {
+$subtotal = $item['Quantity'] * $item['Unit_Price'];
+$item_rows_html .= '
+    <tr>
+        <td style="padding: 8px; border: 1px solid #ccc;">' . htmlspecialchars($item['Product_Name']) . '</td>
+        <td style="padding: 8px; border: 1px solid #ccc;">' . $item['Quantity'] . '</td>
+        <td style="padding: 8px; border: 1px solid #ccc;">RM ' . number_format($item['Unit_Price'], 2) . '</td>
+        <td style="padding: 8px; border: 1px solid #ccc;">RM ' . number_format($subtotal, 2) . '</td>
+    </tr>';
+}
+$items_stmt->close();
+
+$mail->Body = '
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; background-color: #fff; padding: 20px;">
+    <div style="text-align: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px;">
+        <h2 style="color: #3C4C6A; margin: 0;">JJJ.com</h2>
+        <p style="color: #888; font-size: 14px;">Formal Purchase Receipt</p>
+    </div>
+    <p style="font-size: 16px; color: #3C4C6A;">Dear <strong>' . htmlspecialchars($customer_name) . '</strong>,</p>
+    <p style="font-size: 15px; color: #3C4C6A;">Thank you for your purchase. Below is a summary of your order:</p>
+
+    <h3 style="margin-top: 20px; color: #3C4C6A;">Order Details</h3>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 10px; margin-bottom: 20px;">
+        <thead>
+            <tr style="background-color: #f5f5f5;">
+                <th style="padding: 10px; border: 1px solid #ccc;">Product</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Quantity</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Unit Price</th>
+                <th style="padding: 10px; border: 1px solid #ccc;">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            ' . $item_rows_html . '
+            <tr>
+                <td colspan="3" style="padding: 10px; border: 1px solid #ccc; text-align: right;"><strong>Total Paid</strong></td>
+                <td style="padding: 10px; border: 1px solid #ccc;"><strong>RM ' . number_format($amount, 2) . '</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><strong>Order ID:</strong> ' . htmlspecialchars($order_id) . '<br>
+    <strong>Payment Method:</strong> ' . htmlspecialchars($payment_method) . '<br>
+    <strong>Status:</strong> ' . htmlspecialchars($payment_status) . '</p>
+
+    <h4 style="color: #3C4C6A;">Shipping Address</h4>
+    <p style="margin: 0; color: #3C4C6A;">' . nl2br(htmlspecialchars($address)) . '</p>
+
+    <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+    <p style="font-size: 14px; color: #888;">For any questions, contact us at 
+    <a href="mailto:support@jjj.com" style="color: #E27D7D;">support@jjj.com</a>.</p>
+    <p style="font-size: 14px; color: #888;">Thank you for shopping at <strong>JJJ.com</strong>!</p>
+</div>';
+
             $mail->AltBody = 'Thank you for your purchase! Your order ID is ' . $order_id . '. Amount paid: RM ' . number_format($amount, 2) . '.';
             $mail->send();
         } catch (Exception $e) {
