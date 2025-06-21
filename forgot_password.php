@@ -106,8 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="input-box">
       <input type="submit" class="submit" value="Send Temporary Password">
     </div>
-    <div style="text-align: center; margin-top: 10px;">
-      <a href="login.php">Back to Login</a>
+    <div style="text-align: center; margin-top: 10px; color: white;">
+      <a href="login.php" style="color: white;">Back to Login</a>
     </div>
   </form>
 </div>
