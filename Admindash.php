@@ -9,7 +9,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 }
 
 // Pagination setup
-$limit = 7; // rows per page
+$limit = 6; // rows per page
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
@@ -90,11 +90,11 @@ $result = mysqli_query($conn, $sql);
                     </a>
                 </li>
                 <li>
-                    <a href="inventory_reports.php">
+                    <a href="stock_reports.php">
                         <span class="icon">
                             <ion-icon name="archive-outline"></ion-icon>
                         </span>
-                        <span class="title">Inventory Status</span>
+                        <span class="title">Stock Status</span>
                     </a>
                 </li>
                 <li>
@@ -145,19 +145,19 @@ $result = mysqli_query($conn, $sql);
                     </table>
                     <div class="pagination" style="margin-top: 10px; text-align: center;">
                         <?php if ($page > 1): ?>
-                            <a href="?page=<?= $page - 1 ?>&payment_status=<?= urlencode($payment_filter) ?>">Prev</a>
+                            <a href="?page=<?= $page - 1 ?>">Prev</a>
                         <?php endif; ?>
 
                         <?php for ($p = 1; $p <= $total_pages; $p++): ?>
                             <?php if ($p == $page): ?>
                                 <strong><?= $p ?></strong>
                             <?php else: ?>
-                                <a href="?page=<?= $p ?>&payment_status=<?= urlencode($payment_filter) ?>"><?= $p ?></a>
+                                <a href="?page=<?= $p ?>"></a>
                             <?php endif; ?>
                         <?php endfor; ?>
 
                         <?php if ($page < $total_pages): ?>
-                            <a href="?page=<?= $page + 1 ?>&payment_status=<?= urlencode($payment_filter) ?>">Next</a>
+                            <a href="?page=<?= $page + 1 ?>">Next</a>
                         <?php endif; ?>
                     </div>
                 </div>

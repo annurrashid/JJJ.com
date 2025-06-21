@@ -17,7 +17,7 @@
   border-radius: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   padding: var(--spacing-md);
-  height: 300px;
+  height: 400px;
   overflow-x: auto;
 }
 

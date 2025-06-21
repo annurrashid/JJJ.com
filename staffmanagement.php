@@ -147,11 +147,11 @@ $staffResult = $conn->query("SELECT * FROM staff ORDER BY Staff_ID DESC");
                     </a>
                 </li>
                 <li>
-                    <a href="inventory_reports.php">
+                    <a href="stock_reports.php">
                         <span class="icon">
                             <ion-icon name="archive-outline"></ion-icon>
                         </span>
-                        <span class="title">Inventory Status</span>
+                        <span class="title">Stock Status</span>
                     </a>
                 </li>
 

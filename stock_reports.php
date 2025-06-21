@@ -24,7 +24,7 @@ $logs = $conn->query("
     <title>Product Stock Update Report</title>
     <link rel="stylesheet" href="css/A-variable.css" />
     <link rel="stylesheet" href="css/A-base.css" />
-    <link rel="stylesheet" href="css/inventory-report.css">
+    <link rel="stylesheet" href="css/stock-report.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
@@ -61,11 +61,11 @@ $logs = $conn->query("
                         </span>
                         <span class="title">Products</span></a></li>
                 <li>
-                    <a href="inventory_reports.php">
+                    <a href="stock_reports.php">
                         <span class="icon">
                             <ion-icon name="archive-outline"></ion-icon>
                         </span>
-                        <span class="title">Inventory Status</span></a></li>
+                        <span class="title">Stock Status</span></a></li>
                 <li>
                     <a href="systemlogin.php">
                         <span class="icon">

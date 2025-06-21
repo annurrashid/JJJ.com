@@ -98,11 +98,11 @@ $lowStock = $conn->query("SELECT COUNT(*) as count FROM products WHERE Product_S
                     </a>
                 </li>
                 <li>
-                    <a href="inventory_reports.php">
+                    <a href="stock_reports.php">
                         <span class="icon">
                             <ion-icon name="archive-outline"></ion-icon>
                         </span>
-                        <span class="title">Inventory Status</span>
+                        <span class="title">Stock Status</span>
                     </a>
                 </li>
                 <li>
