@@ -101,6 +101,20 @@ $productList = $conn->query("SELECT * FROM products ORDER BY Product_Name");
         <div class="container">
             <h1>Update Stock</h1>
 
+            <!-- Category Filter Form -->
+            <form method="GET" action="productmanagement.php" style="margin-bottom: 15px;">
+            <label for="product_categories">Category:</label>
+            <select name="product_categories" id="product_categories">
+                <option value="">All Categories</option>
+                <?php while($cat = $categories->fetch_assoc()): ?>
+                    <option value="<?= $cat['Category_ID'] ?>" <?= $product_filter == $cat['Category_ID'] ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($cat['Category_Name']) ?>
+                    </option>
+                <?php endwhile; ?>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+
             <?php if (isset($_SESSION['message'])): ?>
                 <div class="alert success"><?= $_SESSION['message']; unset($_SESSION['message']); ?></div>
             <?php endif; ?>
