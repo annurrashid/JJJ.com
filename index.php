@@ -27,7 +27,7 @@ echo "\nSESSION DEBUG END -->";
 <body>
   <header>
     <!-- FIXED logo image path -->
-    <a href="#contact" class="logo">
+    <a href="#contact-all" class="logo">
       <img src="images/logo.jpg" alt="JJJ Logo" />
     </a>
 
@@ -93,8 +93,7 @@ echo "\nSESSION DEBUG END -->";
       </div>
 
       <div class="down-arrow">
-        <a href="#trending-all" class="down"
-          ><i class="bx bx-down-arrow-alt"></i
+        <a href="#trending-all" class="down"><i class="bx bx-down-arrow-alt"></i
         ></a>
       </div>
     </section>
@@ -186,7 +185,7 @@ foreach ($categories as $catID => $catName):
 <?php endforeach; ?>
 
     <!--contact-section-->
-    <section class="contact">
+    <section class="contact" id="contact-all">
       <div class="contact-info">
         <div class="first-info">
           <img src="images/Logo.jpg" alt="" />
@@ -199,10 +198,10 @@ foreach ($categories as $catID => $catName):
           <p>2023876504@student.uitm.edu.my</p>
 
           <div class="social-icon">
-            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.facebook.com/JalanJalanJapan.Malaysia/"><i class="bx bxl-facebook"></i></a>
             <a href="#"><i class="bx bxl-twitter"></i></a>
-            <a href="#"><i class="bx bxl-instagram"></i></a>
-            <a href="#"><i class="bx bxl-youtube"></i></a>
+            <a href="https://www.instagram.com/jalanjalanjapanofficial/?hl=en"><i class="bx bxl-instagram"></i></a>
+            <a href="https://www.tiktok.com/@jalanjalanjapan?_t=ZS-8xPxfpnyq2r&_r=1"><i class="bx bxl-tiktok"></i></a>
             <a href="#"><i class="bx bxl-linkedin"></i></a>
           </div>
         </div>
@@ -237,11 +236,10 @@ foreach ($categories as $catID => $catName):
             Receive Updates, Hot Deals, Discounts Sent Straight In Your Inbox
           </p>
           <p>
-            Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Eum,
-            Debitis.
+            Get the latest fashion news and product launches just by subscribing to our newsletter.
           </p>
           <p>
-            Receive Updates, Hot Deals, Discounts Sent Straight In Your Inbox
+            JJJ is a reliable and user-friendly platform that delivers quality products and services with efficiency and integrity.
           </p>
         </div>
       </div>
