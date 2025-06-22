@@ -72,59 +72,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>System Login</title>
-    <link rel="stylesheet" href="css/systemlogin.css">
-    <style>
-        background-image: url("images/Bg.jpg");
-        .login-container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .error {
-            color: red;
-            margin-bottom: 15px;
-        }
-        .form-section {
-            display: none;
-        }
-        .form-section.active {
-            display: block;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/systemlogin.css" />
+  <title>JJJ | Admin/Staff Login</title>
+  <style>
+    .form-message {
+      margin-bottom: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .form-message.success { color: green; }
+    .form-message.error { color: red; }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>System Login</h1>
-        <div id="login" class="form-section active">
-            <?php if ($login_error): ?>
-                <p class="error"><?= $login_error ?></p>
-            <?php endif; ?>
-            <form method="POST">
+    <div class="wrapper">
+        <div class="form-box">
+            <form class="login-container" method="POST" action="systemlogin.php">
                 <input type="hidden" name="action" value="login">
-                <div class="form-group">
-                    <label for="role">Login As:</label>
-                    <select name="role" id="role" required>
-                        <option value="">-- Select Role --</option>
-                        <option value="admin">Admin</option>
-                        <option value="staff">Staff</option>
+
+                <div class="top">
+                    <header>Admin / Staff Login</header>
+                </div>
+
+                <!-- Optional: Display login error -->
+                <?php if (!empty($login_error)) : ?>
+                    <div class="form-message error"><?= htmlspecialchars($login_error) ?></div>
+                <?php endif; ?>
+
+                <!-- Role selection -->
+                <div class="input-box">
+                    <select name="role" class="input-field" required>
+                    <option value="">-- Select Role --</option>
+                    <option value="admin">Admin</option>
+                    <option value="staff">Staff</option>
                     </select>
+                    <i class="bx bx-id-card"></i>
                 </div>
-                <div class="form-group">
-                    <label>Email/Username:</label>
-                    <input type="text" name="username" required>
+
+                <!-- Username or Email -->
+                <div class="input-box">
+                    <input type="text" name="username" class="input-field" placeholder="Admin Name / Staff Email" required>
+                    <i class="bx bx-user"></i>
                 </div>
-                <div class="form-group">
-                    <label>Password:</label>
-                    <input type="password" name="password" required>
+
+                <!-- Password -->
+                <div class="input-box">
+                    <input type="password" name="password" class="input-field" placeholder="Password" required>
+                    <i class="bx bx-lock-alt"></i>
                 </div>
-                <button type="submit" class="btn">Login</button>
+
+                <!-- Submit -->
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Login">
+                </div>
             </form>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
