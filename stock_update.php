@@ -66,24 +66,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id'], $_POST[
 </head>
 <body>
 <div class="navigation">
-    <ul>
-        <li class="logo-section">
+        <ul>
+            <li class="logo-section">
             <img src="images/Logo.jpg" alt="Logo" class="logo" />
-            <div class="staff-name"><?= htmlspecialchars($staffName) ?></div>
+            <div class="staff-name"><?php echo htmlspecialchars($staffName); ?></div>
         </li>
-        <li><a href="staffdash.php"><ion-icon name="home-outline"></ion-icon><span class="title">Dashboard</span></a></li>
-        <li><a href="stafftask.php"><ion-icon name="checkmark-circle-outline"></ion-icon><span class="title">Task Management</span></a></li>
-        <li><a href="orderstatus.php"><ion-icon name="cube-outline"></ion-icon><span class="title">Order Status</span></a></li>
-        <li><a href="inventory_update.php"><ion-icon name="clipboard-outline"></ion-icon><span class="title">Inventory Report</span></a></li>
-        <li><a href="systemlogin.php"><ion-icon name="log-out-outline"></ion-icon><span class="title">Sign Out</span></a></li>
-    </ul>
-</div>
-
-<div class="main">
-    <div class="topbar">
+        <li>
+            <a href="staffdash.php">
+                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                <span class="title">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="stafftask.php">
+                <span class="icon"><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+                <span class="title">Task Management</span>
+            </a>
+        </li>
+        <li>
+            <a href="orderstatus.php">
+                <span class="icon">
+                    <ion-icon name="cube-outline"></ion-icon>
+                </span>
+                <span class="title">Order Status</span>
+            </a>
+        </li>
+        <li>
+            <a href="inventory_update.php">
+                <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+                <span class="title">Inventory Report</span>
+            </a>
+        </li>
+        <li>
+            <a href="systemlogin.php">
+                <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                <span class="title">Sign Out</span>
+            </a>
+        </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="topbar">
         <div class="toggle"><ion-icon name="menu-outline"></ion-icon></div>
     </div>
-
     <div class="container">
         <h1>Update Stock</h1>
 

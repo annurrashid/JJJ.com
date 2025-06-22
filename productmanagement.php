@@ -2,7 +2,7 @@
 include 'db.php';
 
 // Pagination setup
-$limit = 10;
+$limit = 5;
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
@@ -141,6 +141,41 @@ $lowStock = $conn->query("SELECT COUNT(*) as count FROM products WHERE Product_S
             <h2>Product List</h2>
         </div>
             <div class="recentOrders">
+                <!-- ========================= PAGINATION ==================== -->
+                <div class="pagination">
+                    <?php
+                    $adjacents = 2;
+                    $start = max(1, $page - $adjacents);
+                    $end = min($total_pages, $page + $adjacents);
+
+                    if ($page > 1) {
+                        echo '<a href="?page=' . ($page - 1) . '&product_categories=' . urlencode($product_filter) . '">Prev</a>';
+                    }
+
+                    if ($start > 1) {
+                        echo '<a href="?page=1&product_categories=' . urlencode($product_filter) . '">1</a>';
+                        if ($start > 2) echo '...';
+                    }
+
+                    for ($i = $start; $i <= $end; $i++) {
+                        if ($i == $page) {
+                            echo '<strong>' . $i . '</strong>';
+                        } else {
+                            echo '<a href="?page=' . $i . '&product_categories=' . urlencode($product_filter) . '">' . $i . '</a>';
+                        }
+                    }
+
+                    if ($end < $total_pages) {
+                        if ($end < $total_pages - 1) echo '...';
+                        echo '<a href="?page=' . $total_pages . '&product_categories=' . urlencode($product_filter) . '">' . $total_pages . '</a>';
+                    }
+
+                    if ($page < $total_pages) {
+                        echo '<a href="?page=' . ($page + 1) . '&product_categories=' . urlencode($product_filter) . '">Next</a>';
+                    }
+                    ?>
+                </div>
+
                 <table class="productTable">
                 <thead>
                     <tr>
@@ -286,23 +321,6 @@ $lowStock = $conn->query("SELECT COUNT(*) as count FROM products WHERE Product_S
         </form>
     </div>
 </div>
-<div class="pagination">
-    <?php if ($page > 1): ?>
-        <a href="?page=<?= $page - 1 ?>&product_categories=<?= urlencode($product_filter) ?>">Prev</a>
-    <?php endif; ?>
-    <?php for ($p = 1; $p <= $total_pages; $p++): ?>
-        <?php if ($p == $page): ?>
-            <strong><?= $p ?></strong>
-        <?php else: ?>
-            <a href="?page=<?= $p ?>&product_categories=<?= urlencode($product_filter) ?>"><?= $p ?></a>
-        <?php endif; ?>
-    <?php endfor; ?>
-    <?php if ($page < $total_pages): ?>
-        <a href="?page=<?= $page + 1 ?>&product_categories=<?= urlencode($product_filter) ?>">Next</a>
-    <?php endif; ?>
-</div>
-
-
     <!-- =========== Scripts =========  -->
 <script src="js/productmanagement.js"></script>
 <script src="js/main.js"></script>

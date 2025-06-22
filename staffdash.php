@@ -76,9 +76,9 @@ $result = $stmt->get_result();
             </a>
         </li>
         <li>
-            <a href="inventory_update.php">
+            <a href="stock_update.php">
                 <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
-                <span class="title">Inventory Report</span>
+                <span class="title">Stock Report</span>
             </a>
         </li>
         <li>

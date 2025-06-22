@@ -33,6 +33,27 @@
   background-color: var(--black);
 }
 
+/* ================= PAGINATION ============ */
+.pagination {
+  margin: 10px 0;
+  text-align: right;
+}
+
+.pagination a, .pagination strong {
+  padding: 6px 12px;
+  margin: 2px;
+  border-radius: 6px;
+  text-decoration: none;
+  background: var(--white);
+  border: 1px solid #ccc;
+  color: var(--black);
+}
+
+.pagination strong {
+  background: var(--blue);
+  color: var(--white);
+}
+
 /* ================= TABLE ================= */
 
 .recentOrders {
