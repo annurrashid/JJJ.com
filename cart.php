@@ -26,7 +26,6 @@ if (isset($_SESSION['last_order_id'])) {
     }
 }
 
-
 // Handle delete success message
 $deleteSuccess = isset($_GET['deleted']) && $_GET['deleted'] == '1';
 
@@ -37,7 +36,8 @@ $stmt = $conn->prepare("
         oi.Quantity, 
         oi.Unit_Price, 
         p.Product_Name, 
-        p.Product_Image 
+        p.Product_Image,
+        p.Product_Stock
     FROM order_items oi 
     JOIN products p ON oi.Product_ID = p.Product_ID 
     WHERE oi.Order_ID = ?
@@ -75,6 +75,11 @@ while ($row = $result->fetch_assoc()) {
         height: 100%;
         z-index: -1;
       }
+
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
   </style>
 </head>
 <body class="relative text-white">
@@ -101,19 +106,42 @@ while ($row = $result->fetch_assoc()) {
     <?php if (count($items) > 0): ?>
       <div class="space-y-4">
         <?php foreach ($items as $item): ?>
-          <div class="flex items-center justify-between border border-white/20 bg-white/10 backdrop-blur p-4 rounded-lg shadow-sm">
-            <div class="flex items-center gap-4">
+          <div class="border border-white/20 bg-white/10 backdrop-blur p-4 rounded-lg shadow-sm flex justify-between items-start">
+            
+            <div class="flex items-start gap-4 max-w-xs">
               <img src="product_image/<?= htmlspecialchars($item['Product_Image']) ?>" 
-                   onerror="this.onerror=null; this.src='product_image/placeholder.jpg';" 
-                   class="w-16 h-16 object-cover rounded-lg border" 
-                   alt="<?= htmlspecialchars($item['Product_Name'] ?? 'Product') ?>">
+                  onerror="this.onerror=null; this.src='product_image/placeholder.jpg';" 
+                  class="w-16 h-16 object-cover rounded-lg border" 
+                  alt="<?= htmlspecialchars($item['Product_Name'] ?? 'Product') ?>">
               <div>
                 <h4 class="text-lg font-medium"><?= htmlspecialchars($item['Product_Name']) ?></h4>
-                <p class="text-sm text-gray-300">Quantity: <?= $item['Quantity'] ?></p>
+                <div class="text-white font-bold mt-1">
+                  RM <?= number_format($item['Row_Total'], 2) ?>
+                </div>
               </div>
             </div>
-            <div class="text-right space-y-2">
-              <p class="text-white-400 font-bold">RM <?= number_format($item['Row_Total'], 2) ?></p>
+
+            <div class="flex flex-col items-end gap-2">
+              <div class="flex items-center gap-4">
+                <form method="POST" action="update_quantity.php" class="inline-flex">
+                  <input type="hidden" name="order_item_id" value="<?= $item['Order_Item_ID'] ?>">
+                  <input type="hidden" name="quantity" value="<?= max(1, $item['Quantity'] - 1) ?>">
+                  <button type="submit" <?= $item['Quantity'] <= 1 ? 'disabled' : '' ?> 
+                    class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded select-none">-</button>
+                </form>
+
+                <div class="text-white font-semibold select-none">
+                  <?= $item['Quantity'] ?>
+                </div>
+
+                <form method="POST" action="update_quantity.php" class="inline-flex">
+                  <input type="hidden" name="order_item_id" value="<?= $item['Order_Item_ID'] ?>">
+                  <input type="hidden" name="quantity" value="<?= min($item['Product_Stock'], $item['Quantity'] + 1) ?>">
+                  <button type="submit" <?= $item['Quantity'] >= $item['Product_Stock'] ? 'disabled' : '' ?> 
+                    class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded select-none">+</button>
+                </form>
+              </div>
+
               <form method="POST" action="deletecartitem.php" onsubmit="return confirm('Remove this item from cart?');">
                 <input type="hidden" name="order_item_id" value="<?= $item['Order_Item_ID'] ?>">
                 <button type="submit" class="text-sm text-red-300 hover:text-red-500">Remove</button>
