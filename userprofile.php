@@ -35,8 +35,8 @@ $conn->close();
     }
 
     body {
-      background: url('https://images.unsplash.com/photo-1587620962725-abab7fe55159') no-repeat center center fixed;
-      background-size: cover;
+      background: url("images/bg2.jpg") center center / cover no-repeat fixed;
+      overflow: hidden;
       color: #333;
     }
 

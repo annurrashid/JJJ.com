@@ -51,6 +51,10 @@ echo "\nSESSION DEBUG END -->";
   <li class="dropdown">
     <a href="#trending-all">Shop</a>
   </li>
+  
+  <li><a href="blog.html">Blog</a></li>
+  <li><a href="service.html">Services</a></li>
+  <li><a href="about.html">About</a></li>
 </ul>
 
 <!-- In your navigation -->

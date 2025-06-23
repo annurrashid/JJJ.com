@@ -60,65 +60,86 @@ while ($row = $result->fetch_assoc()) {
   <meta charset="UTF-8">
   <title>Your Cart</title>
   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+      body {
+        background: url("images/bg2.jpg") center center / cover no-repeat fixed;
+        overflow: hidden;
+      }
+      .overlay {
+        background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent */
+        backdrop-filter: blur(1px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+  </style>
 </head>
-<body class="bg-white text-gray-800">
-  <div class="max-w-4xl mx-auto p-6">
-    <a href="index.php" class="inline-block mb-4 text-pink-500 hover:text-pink-600 font-semibold">
+<body class="relative text-white">
+  
+  <!-- Dark Overlay -->
+  <div class="overlay"></div>
+  
+  <!-- Main Content -->
+   <div class="max-w-4xl mx-auto p-6 relative z-10">
+    <a href="index.php" class="inline-block mb-4 text-pink-400 hover:text-pink-300 font-semibold">
       &larr; Back to Products
     </a>
 
     <h1 class="text-3xl font-bold mb-6">Your Shopping Cart</h1>
 
     <?php if (isset($_GET['success'])): ?>
-      <div class="bg-green-100 text-green-800 p-4 mb-4 rounded-lg">Item successfully added to cart!</div>
+      <div class="bg-white/20 backdrop-blur text-green-200 p-4 mb-4 rounded-lg border border-green-400">Item successfully added to cart!</div>
     <?php endif; ?>
 
     <?php if ($deleteSuccess): ?>
-      <div class="bg-red-100 text-red-800 p-4 mb-4 rounded-lg">Item removed from cart.</div>
+      <div class="bg-white/20 backdrop-blur text-red-200 p-4 mb-4 rounded-lg border border-red-400">Item removed from cart.</div>
     <?php endif; ?>
 
     <?php if (count($items) > 0): ?>
       <div class="space-y-4">
         <?php foreach ($items as $item): ?>
-          <div class="flex items-center justify-between border p-4 rounded-lg shadow-sm">
+          <div class="flex items-center justify-between border border-white/20 bg-white/10 backdrop-blur p-4 rounded-lg shadow-sm">
             <div class="flex items-center gap-4">
               <img src="product_image/<?= htmlspecialchars($item['Product_Image']) ?>" 
                    onerror="this.onerror=null; this.src='product_image/placeholder.jpg';" 
                    class="w-16 h-16 object-cover rounded-lg border" 
-                   alt="<?= htmlspecialchars($item['Product_Name']) ?>">
+                   alt="<?= htmlspecialchars($item['Product_Name'] ?? 'Product') ?>">
               <div>
                 <h4 class="text-lg font-medium"><?= htmlspecialchars($item['Product_Name']) ?></h4>
-                <p class="text-sm text-gray-500">Quantity: <?= $item['Quantity'] ?></p>
+                <p class="text-sm text-gray-300">Quantity: <?= $item['Quantity'] ?></p>
               </div>
             </div>
             <div class="text-right space-y-2">
-              <p class="text-pink-500 font-bold">RM <?= number_format($item['Row_Total'], 2) ?></p>
+              <p class="text-white-400 font-bold">RM <?= number_format($item['Row_Total'], 2) ?></p>
               <form method="POST" action="deletecartitem.php" onsubmit="return confirm('Remove this item from cart?');">
                 <input type="hidden" name="order_item_id" value="<?= $item['Order_Item_ID'] ?>">
-                <button type="submit" class="text-sm text-red-500 hover:text-red-700">Remove</button>
+                <button type="submit" class="text-sm text-red-300 hover:text-red-500">Remove</button>
               </form>
             </div>
           </div>
         <?php endforeach; ?>
       </div>
 
-      <div class="border-t pt-4 mt-6 flex justify-between items-center">
-  <p class="text-xl font-bold">
-    Total: RM <?= number_format($total, 2) ?>
-  </p>
-  <div>
-    <a href="paymentform.php?order_id=<?= $order_id ?>"
-       class="bg-pink-400 hover:bg-pink-500 text-white px-6 py-2 rounded-lg shadow">
-       Proceed to Payment
-    </a>
-    <a href="index.php#trending-all"
-   class="ml-4 bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-lg shadow">
-   Continue Shopping
-</a>
-  </div>
-</div>
+      <div class="border-t border-white/20 pt-4 mt-6 flex justify-between items-center">
+        <p class="text-xl font-bold">
+          Total: RM <?= number_format($total, 2) ?>
+        </p>
+        <div>
+          <a href="paymentform.php?order_id=<?= $order_id ?>"
+             class="bg-pink-400 hover:bg-pink-500 text-white px-6 py-2 rounded-lg shadow">
+             Proceed to Payment
+          </a>
+          <a href="index.php#trending-all"
+             class="ml-4 bg-white text-gray-800 hover:bg-gray-200 px-6 py-2 rounded-lg shadow">
+             Continue Shopping
+          </a>
+        </div>
+      </div>
     <?php else: ?>
-      <p class="text-gray-500">Your cart is empty.</p>
+      <p class="text-gray-300 mt-4">Your cart is empty.</p>
     <?php endif; ?>
   </div> 
 </body>

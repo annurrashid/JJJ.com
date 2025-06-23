@@ -111,9 +111,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="nav-menu" id="navMenu">
       <ul>
         <li><a href="index.php" class="link active">Home</a></li>
-        <li><a href="blog.html" class="link">Blog</a></li>
-        <li><a href="service.html" class="link">Services</a></li>
-        <li><a href="about.html" class="link">About</a></li>
       </ul>
     </div>
     <div class="nav-button">
