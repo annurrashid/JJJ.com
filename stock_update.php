@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id'], $_POST[
         $_SESSION['error'] = "Product not found.";
     }
 
-    header("Location: inventory_update.php");
+    header("Location: stock_update.php");
     exit();
 }
 ?>
