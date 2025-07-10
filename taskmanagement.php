@@ -215,7 +215,7 @@ $overdueTasks = $overdueTasksResult->fetch_assoc()['total'];
                             <h3>Task Description:</h3>
                             <textarea name="taskDescription" placeholder="Task Description" required></textarea>
                             <h3>Task Deadline:</h3>
-                            <input type="datetime-local" name="taskDeadline" required><br>
+                            <input type="date" name="taskDeadline" required><br>
                             <h3>Assign to Staff:</h3>
                             <div class="task-assignment">
                                 <?php while ($staff = $staffResult->fetch_assoc()): ?>
@@ -243,7 +243,7 @@ $overdueTasks = $overdueTasksResult->fetch_assoc()['total'];
                             <h3>Task Description:</h3>
                             <textarea name="taskDescription" id="editTaskDescription" placeholder="Task Description" required></textarea>
                             <h3>Task Deadline:</h3>
-                            <input type="datetime-local" name="taskDeadline" id="editTaskDeadline" required><br>
+                            <input type="date" name="taskDeadline" id="editTaskDeadline" required><br>
                             <h3>Assign to Staff:</h3>
                             <div class="task-assignment" id="editStaffAssignment">
                             </div>
@@ -274,7 +274,7 @@ $overdueTasks = $overdueTasksResult->fetch_assoc()['total'];
                                 <tr>
                                     <td><?= htmlspecialchars($task['Task_Title']) ?></td>
                                     <td><?= htmlspecialchars($task['Task_Description']) ?></td>
-                                    <td><?= date('Y-m-d H:i', strtotime($task['Task_Deadline'])) ?></td>
+                                    <td><?= date('Y-m-d', strtotime($task['Task_Deadline'])) ?></td>
                                     <td><?= htmlspecialchars($task['Task_Status']) ?></td>
                                     <td><?= htmlspecialchars($task['assigned_staff']) ?></td>
                                     <td>

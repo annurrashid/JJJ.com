@@ -18,13 +18,13 @@ function openModal() {
         document.getElementById('editTaskID').value = task.Task_ID;
         document.getElementById('editTaskTitle').value = task.Task_Title;
         document.getElementById('editTaskDescription').value = task.Task_Description;
-        document.getElementById('editTaskDeadline').value = new Date(task.Task_Deadline).toISOString().slice(0,16);
+        document.getElementById('editTaskDeadline').value = task.Task_Deadline.split(' ')[0];
 
         // Fetch staff list via AJAX and check assigned staff
         fetch('get_staff_list.php?task_id=' + task.Task_ID)
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('editStaffAssignment').innerHTML = html;
-                openEditModal();
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('editStaffAssignment').innerHTML = html;
+            openEditModal();
             });
     }
