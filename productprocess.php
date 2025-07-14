@@ -45,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $name = $conn->real_escape_string($_POST['productName']);
     $desc = $conn->real_escape_string($_POST['productDescription']);
     $price = floatval($_POST['productPrice']);
-    $stock = intval($_POST['productStock']);
     $category = intval($_POST['productCategory']);
     $status = $conn->real_escape_string($_POST['productStatus']);
 
@@ -78,7 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 Product_Name = '$name',
                 Product_Description = '$desc',
                 Product_Price = $price,
-                Product_Stock = $stock,
                 Product_Image = '$imageName',
                 Product_Status = '$status',
                 Category_ID = $category
